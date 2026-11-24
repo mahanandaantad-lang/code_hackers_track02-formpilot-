@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormPilot - Opportunity Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <h1>✈ FormPilot</h1>
+    <p>Discover opportunities. Find your match. Apply confidently.</p>
+</header>
+
+<nav class="nav">
+    <button onclick="showSection('dashboard')">Dashboard</button>
+    <button onclick="showSection('profile')">My Profile</button>
+    <button onclick="showSection('discover')">Discover</button>
+    <button onclick="showSection('applications')">My Applications</button>
+</nav>
+
+<main>
+
+<section id="dashboard" class="section">
+    <div class="hero">
+        <h2>Your opportunities, in one place.</h2>
+        <p>Explore scholarships, internships, jobs, admissions and more.</p>
+        <button onclick="showSection('discover')">Explore now</button>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <h3>7+</h3>
+            <p>Opportunity categories</p>
+        </div>
+        <div class="stat-card">
+            <h3>Multi-source</h3>
+            <p>Web discovery</p>
+        </div>
+        <div class="stat-card">
+            <h3>Profile based</h3>
+            <p>Relevance ranking</p>
+        </div>
+    </div>
+
+    <p class="notice">
+        FormPilot helps discover opportunities. Always verify deadlines,
+        eligibility and application details on the official website.
+    </p>
+</section>
+
+<section id="profile" class="section hidden">
+    <h2>My Student Profile</h2>
+    <p>Save your details once to improve opportunity matching.</p>
+
+    <div class="panel">
+        <label>Full name</label>
+        <input id="name" placeholder="Your full name">
+
+        <label>Email</label>
+        <input id="email" type="email" placeholder="Your email">
+
+        <label>Phone</label>
+        <input id="phone" type="tel" placeholder="Your phone number">
+
+        <label>Location</label>
+        <input id="location" placeholder="Example: Bengaluru">
+
+        <label>Education</label>
+        <select id="education">
+            <option value="">Select education</option>
+            <option>B.Tech</option>
+            <option>B.E.</option>
+            <option>B.Sc</option>
+            <option>BCA</option>
+            <option>Diploma</option>
+            <option>12th</option>
+            <option>Other</option>
+        </select>
+
+        <label>Course / Branch</label>
+        <input id="course" placeholder="Example: Computer Science">
+
+        <label>Semester / Year</label>
+        <input id="semester" placeholder="Example: 3rd semester">
+
+        <label>Skills (comma separated)</label>
+        <input id="skills" placeholder="Python, Java, HTML, AI">
+
+        <label>Interests</label>
+        <input id="interests" placeholder="Software development, AI, research">
+
+        <label>CGPA / Percentage</label>
+        <input id="cgpa" placeholder="Optional">
+
+        <button class="primary" onclick="saveProfile()">Save Profile</button>
+        <p id="profileMessage" class="message"></p>
+    </div>
+</section>
+
+<section id="discover" class="section hidden">
+    <h2>Discover Opportunities</h2>
+    <p>Search across multiple indexed opportunity websites.</p>
+
+    <div class="panel">
+        <label>Opportunity category</label>
+        <select id="category">
+            <option value="all">All categories</option>
+            <option value="scholarships">Scholarships</option>
+            <option value="internships">Internships</option>
+            <option value="jobs">Jobs</option>
+            <option value="admissions">College admissions</option>
+            <option value="apprenticeships">Apprenticeships</option>
+            <option value="competitions">Competitions / Hackathons</option>
+            <option value="fellowships">Fellowships</option>
+        </select>
+
+        <label>Search keywords</label>
+        <input id="keyword" placeholder="Example: paid internship, women in technology">
+
+        <button class="primary" id="searchButton" onclick="searchOpportunities()">
+            Search Opportunities
+        </button>
+    </div>
+
+    <p id="searchMessage" class="message"></p>
+    <div id="results" class="results"></div>
+
+    <h3 class="subheading">Official opportunity portals</h3>
+    <div id="portals" class="portal-list"></div>
+</section>
+
+<section id="review" class="section hidden">
+    <h2>Review Before Applying</h2>
+    <p>Check your details before continuing to the original website.</p>
+
+    <div class="panel">
+        <h3 id="reviewTitle"></h3>
+        <div id="reviewDetails"></div>
+
+        <label class="check-row">
+            <input type="checkbox" id="reviewCheckbox">
+            I have reviewed my details and understand that I will
+            continue to the external website.
+        </label>
+
+        <button class="primary" onclick="confirmAndContinue()">
+            Confirm and Continue to Official Website
+        </button>
+
+        <button class="secondary" onclick="showSection('discover')">
+            Go Back
+        </button>
+
+        <p id="reviewMessage" class="message"></p>
+    </div>
+</section>
+
+<section id="applications" class="section hidden">
+    <h2>My Applications</h2>
+    <p>These are opportunities you chose to continue to.</p>
+    <div id="applicationList" class="results"></div>
+</section>
+
+</main>
+
+<footer>
+    <p>FormPilot © 2026 | Hackathon MVP</p>
+    <p>Independent discovery tool. Not affiliated with listed websites.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
